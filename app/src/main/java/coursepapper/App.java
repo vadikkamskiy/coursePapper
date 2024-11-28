@@ -5,9 +5,13 @@
 package coursepapper;
 import java.util.Scanner;
 
+import main.java.coursepapper.Employee;
+import main.java.coursepapper.EmployeeBook;
+
 public class App {
 
     public static void main(String[] args) {
+        int id = 0;
         System.out.println(
             "what do you want??!\n"+
             "1 - Получить список всех сотрудников\n"+
@@ -20,14 +24,16 @@ public class App {
         );
         Scanner scan = new Scanner(System.in);
         int choose = Integer.parseInt(scan.nextLine());
-        scan.close();
         switch (choose) {
             case 1:
-                
+                EmployeeBook.getAllEmployees();
                 break;
-        
+            case 6:
+                Employee.createEmployee(id);
+                break;
             default:
                 break;
         }
+        scan.close();
     }
 }
