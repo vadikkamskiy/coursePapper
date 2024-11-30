@@ -16,7 +16,7 @@ public class Employee{
     public String toString(){
         return id+" " + name+" " + unit+" " + salary;
     }
-
+    // сетеры + гетеры
     public void setID(int i){
         id = i;
     }
@@ -41,7 +41,9 @@ public class Employee{
     public int getUnit(){
         return unit;
     }
-    
+
+    //метод для удаления сотрудника
+
     public void emptyEmployee(){
         name = "empty";
         unit = 0;

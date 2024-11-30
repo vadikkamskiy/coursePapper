@@ -15,6 +15,7 @@ public class App {
         mainMenu();
     }
     public static void mainMenu(){
+        //главное меню + добавление списка
         Employee[] listEmployee ={
             new Employee("Иванов Иван Иванович",1, 150000),
             new Employee("Петров Петр Петрович",2, 140000),
@@ -38,6 +39,7 @@ public class App {
             "6 - Только имена\n"+
             "7 - Удалить сотрудника\n"
         );
+        //сканер для управления 
         Scanner scan = new Scanner(System.in);
         int choose = Integer.parseInt(scan.nextLine());
         switch (choose) {
@@ -66,6 +68,7 @@ public class App {
             default:
                 break;
         }
+        //проверка работы поиска по отделу
         EB.findUnit(4);
         
         scan.close();
