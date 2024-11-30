@@ -3,7 +3,7 @@ package main.java.coursepapper;
 import java.util.Scanner;
 
 public class Employee{
-    int id = 0;
+    private int id;
     String name;
     int unit;
     int salary; 
@@ -11,10 +11,13 @@ public class Employee{
         name = n;
         unit = u;
         salary = s;
-        ++id;
     }
     @Override
     public String toString(){
         return id+" " + name+" " + unit+" " + salary;
+    }
+
+    public void setID(int i){
+        id = i;
     }
 }

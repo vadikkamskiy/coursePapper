@@ -12,7 +12,9 @@ import main.java.coursepapper.EmployeeBook;
 public class App {
 
     public static void main(String[] args) {
-
+        mainMenu();
+    }
+    public static void mainMenu(){
         Employee[] listEmployee ={
             new Employee("Иванов Иван Иванович",1, 150000),
             new Employee("Петров Петр Петрович",2, 140000),
@@ -41,18 +43,26 @@ public class App {
         switch (choose) {
             case 1:
             EB.getList();
+            break;
             case 2:
             System.out.println(Integer.toString(EB.getAllSalary()));
+            break;
             case 3:
+            EB.minimalSalary();
+            break;
             case 4:
+            EB.maximumSalary();
+            break;
             case 5:
+            EB.middleValueOfSalary();
+            break;
             case 6:
+            EB.test();
             case 7:
                  
             default:
                 break;
         }
         scan.close();
-    
     }
 }
