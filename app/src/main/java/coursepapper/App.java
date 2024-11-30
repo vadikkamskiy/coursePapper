@@ -35,7 +35,7 @@ public class App {
             "3 - Найти сотрудника с минимальной ЗП\n"+
             "4 - Найти сотрудника с максимальной ЗП\n"+
             "5 - Подсчитать среднее значение зарплат\n"+
-            "6 - Добавить сотрудника\n"+
+            "6 - Только имена\n"+
             "7 - Удалить сотрудника\n"
         );
         Scanner scan = new Scanner(System.in);
@@ -57,12 +57,17 @@ public class App {
             EB.middleValueOfSalary();
             break;
             case 6:
-            EB.test();
+            EB.onlyName();
+            break;
             case 7:
+            EB.removeEmployee();
+            break;
                  
             default:
                 break;
         }
+        EB.findUnit(4);
+        
         scan.close();
     }
 }
