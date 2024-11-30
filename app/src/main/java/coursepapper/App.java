@@ -12,7 +12,10 @@ import main.java.coursepapper.EmployeeBook;
 public class App {
 
     public static void main(String[] args) {
-
+        mainMenu();
+    }
+    public static void mainMenu(){
+        //главное меню + добавление списка
         Employee[] listEmployee ={
             new Employee("Иванов Иван Иванович",1, 150000),
             new Employee("Петров Петр Петрович",2, 140000),
@@ -33,26 +36,41 @@ public class App {
             "3 - Найти сотрудника с минимальной ЗП\n"+
             "4 - Найти сотрудника с максимальной ЗП\n"+
             "5 - Подсчитать среднее значение зарплат\n"+
-            "6 - Добавить сотрудника\n"+
+            "6 - Только имена\n"+
             "7 - Удалить сотрудника\n"
         );
+        //сканер для управления 
         Scanner scan = new Scanner(System.in);
         int choose = Integer.parseInt(scan.nextLine());
         switch (choose) {
             case 1:
             EB.getList();
+            break;
             case 2:
             System.out.println(Integer.toString(EB.getAllSalary()));
+            break;
             case 3:
+            EB.minimalSalary();
+            break;
             case 4:
+            EB.maximumSalary();
+            break;
             case 5:
+            EB.middleValueOfSalary();
+            break;
             case 6:
+            EB.onlyName();
+            break;
             case 7:
+            EB.removeEmployee();
+            break;
                  
             default:
                 break;
         }
+        //проверка работы поиска по отделу
+        EB.findUnit(4);
+        
         scan.close();
-    
     }
 }
