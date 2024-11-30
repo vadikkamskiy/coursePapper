@@ -29,6 +29,21 @@ public class App {
         System.out.println("Middle salary - "+ calculateMiddleSalary());
         System.out.println("Name of employees - ");
         printName();
+        upSalary(10);
+        int chekedUnit = 3;
+        System.out.println("minimal salary of "+ chekedUnit + " unit - " + 
+        findUnitWithMinimalSalary(chekedUnit));
+        System.out.println("maximum salary of "+ chekedUnit + " unit - " + 
+        findUnitWithMaximumSalary(chekedUnit));
+        System.out.println("All salary of " +chekedUnit + " unit "+ unitAllSalary(chekedUnit));
+        System.out.println("Middle Salary of " + chekedUnit + " unit - " + calculateUnitMiddleSalary(chekedUnit));
+        upSalaryOfUnit(chekedUnit, 7);
+        printUnitInfo(chekedUnit);
+        int chekedSalary = 75000;
+        System.out.println("Salary less " + chekedSalary);
+        salaryLessValue(chekedSalary);
+        System.out.println("Salary more " + chekedSalary);
+        salaryMoreValue(chekedSalary);
 
     }
 
@@ -72,6 +87,87 @@ public class App {
     private static void printName(){
         for (Employee employee : EMPLOYEES) {
             System.out.println(employee.getName());
+        }
+    }
+    private static void upSalary(int p){
+        for (Employee employee : EMPLOYEES) {
+            int newSalary = (employee.getSalary()/100)*(100+p);
+            employee.setSalary(newSalary);
+        }
+        print();
+    }
+
+    private static Employee findUnitWithMinimalSalary(int u){
+        Employee unitMinimalSalary = null;
+        for (Employee employee : EMPLOYEES) {
+            if(employee.getUnit() == u && (unitMinimalSalary == null || unitMinimalSalary.getSalary()>employee.getSalary())){
+                unitMinimalSalary = employee;
+            }
+        }
+        return unitMinimalSalary;
+    }
+
+    private static Employee findUnitWithMaximumSalary(int u){
+        Employee unitMaximumSalary = null;
+        for (Employee employee : EMPLOYEES) {
+            if(employee.getUnit() == u && (unitMaximumSalary == null || unitMaximumSalary.getSalary()<employee.getSalary())){
+                unitMaximumSalary = employee;
+            }
+        }
+        return unitMaximumSalary;
+    }
+
+    private static int unitAllSalary(int u){
+        int result = 0;
+        for (Employee employee : EMPLOYEES) {
+            if(employee.getUnit()==u){
+                result += employee.getSalary();
+            }
+        }
+        return result;
+    }
+
+    private static double calculateUnitMiddleSalary(int u){
+        int point = 0;
+        int allSalaryUnit = 0;
+        for (Employee employee : EMPLOYEES) {
+            if(employee.getUnit() == u){
+                point++;
+                allSalaryUnit+=employee.getSalary();
+            }
+        }
+        return (double) allSalaryUnit/point;
+    }
+    private static void upSalaryOfUnit(int u, int p){
+        int newSalary;
+        for (Employee employee : EMPLOYEES) {
+            if(employee.getUnit() == u){
+                newSalary = (employee.getSalary()/100)*(100+p);
+                employee.setSalary(newSalary);
+            }
+        }
+    }
+    private static void printUnitInfo(int u){
+        for (Employee employee : EMPLOYEES) {
+            if(employee.getUnit() == u){
+                System.out.println(employee.getId() + " " + employee.getName() + " " +
+                employee.getSalary());
+            }
+        }
+    }
+
+    private static void salaryLessValue(int v){
+        for (Employee employee : EMPLOYEES) {
+            if(employee.getSalary()<v){
+                System.out.println(employee);
+            }
+        }
+    }
+    private static void salaryMoreValue(int v){
+        for (Employee employee : EMPLOYEES) {
+            if(employee.getSalary()>v){
+                System.out.println(employee);
+            }
         }
     }
 }
