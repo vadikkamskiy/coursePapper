@@ -35,7 +35,7 @@ public class App {
         findUnitWithMinimalSalary(chekedUnit));
         System.out.println("maximum salary of "+ chekedUnit + " unit - " + 
         findUnitWithMaximumSalary(chekedUnit));
-        System.out.println("All salary of " +chekedUnit + " unit "+ unitAllSalary(chekedUnit));
+        System.out.println("All salary of " +chekedUnit + " unit "+ getUnitAllSalary(chekedUnit));
         System.out.println("Middle Salary of " + chekedUnit + " unit - " + calculateUnitMiddleSalary(chekedUnit));
         upSalaryOfUnit(chekedUnit, 7);
         printUnitInfo(chekedUnit);
@@ -117,7 +117,7 @@ public class App {
         return unitMaximumSalary;
     }
 
-    private static int unitAllSalary(int u){
+    private static int getUnitAllSalary(int u){
         int result = 0;
         for (Employee employee : employees) {
             if(employee.getUnit()==u){
